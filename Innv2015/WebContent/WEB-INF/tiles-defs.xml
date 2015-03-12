@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="sfstemplate" template="/WEB-INF/jsp/templates/sfswebtemplate.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
+	</definition>
+	<definition name="emptyTemplate"
+		template="/WEB-INF/jsp/templates/emptyTemplate.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="partialPageTemplate"
+		template="/WEB-INF/jsp/templates/partialPageTemplate.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="loginpage" extends="sfstemplate">
+		<put-attribute name="header" value="" />
+		<put-attribute name="body" value="/WEB-INF/jsp/account/loginpage.jsp" />
+	</definition>
+	<definition name="userGroupList" extends="sfstemplate">
+		<put-attribute name="header" value="" />
+		<put-attribute name="changeUFN" value="" />
+		<put-attribute name="timeCounter" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/account/userGroupList.jsp" />
+	</definition>
+	<definition name="finance" extends="sfstemplate">
+		<put-attribute name="header" value="" />
+		<put-attribute name="changeUFN" value="" />
+		<put-attribute name="timeCounter" value="" />
+		<put-attribute name="body" value="/WEB-INF/jsp/account/finance.jsp" />
+	</definition>
+	<definition name="confirmFinance" extends="sfstemplate">
+		<put-attribute name="header" value="" />
+		<put-attribute name="changeUFN" value="" />
+		<put-attribute name="timeCounter" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/account/confirmFinance.jsp" />
+	</definition>
+	<definition name="draftNotification" extends="sfstemplate">
+		<put-attribute name="header" value="" />
+		<put-attribute name="changeUFN" value="" />
+		<put-attribute name="timeCounter" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/account/draftNotification.jsp" />
+	</definition>
+	<!-- All Dashboards -->
+	<definition name="dashboard" extends="sfstemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/dashboard/dashboard.jsp" />
+	</definition>
+	<definition name="qStart" extends="sfstemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/questions/qStart.jsp" />
+	</definition>
+	
+
+
+			
+	
+</tiles-definitions>

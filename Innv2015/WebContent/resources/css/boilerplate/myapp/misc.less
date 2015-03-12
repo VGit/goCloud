@@ -1,0 +1,396 @@
+
+
+html.busy, html.busy * {  
+  cursor: wait !important;  
+}
+
+
+/* ------------ typography ---------- */
+
+h1{
+	font-weight:bold;
+	color: @brand-secondary;
+	margin-top:0;
+}
+h2{
+	color: @brand-primary;
+	font-weight:bold;
+}
+a{
+	font-weight: bold;
+}
+.muted{
+	color: @gray;
+	font-size:13px;
+}
+.note{
+	font-size: 13px;
+	color: @gray;
+	margin-top:1em;
+	margin-bottom:1em;
+}
+.red{
+	color:@brand-secondary !important;
+}
+.green{
+	color:@brand-success !important;
+}
+.bold{
+	font-weight:bold;
+}
+
+/* ------------ form ---------- */
+
+input.quantity{
+	width:85px;
+}
+
+input.changed{
+	background-color:@state-warning-border;
+}
+.changed button[type="submit"]{
+	display:inline-block !important;
+}
+
+.inlineSelect{
+	width:auto;
+	border:0;
+	color: #aaa;
+	padding:0.25em 0.5em;
+}
+input.rowCheck{
+	display:none;
+}
+label.rowCheck{
+	background-color:#fff;
+	width:15px;
+	height:15px;
+	border:1px solid @gray-light;
+	display:block;
+	margin-bottom:0;
+	cursor:pointer;
+
+	i{
+		display:none;
+		font-size:13px;
+	}
+}
+input:checked + label.rowCheck i{
+	display: block !important;
+}
+//because IE8 doesn't understand the + selector
+.rowCheckOn label.rowCheck i{
+	display: block !important;
+}
+.form-control.mini{
+	padding:3px;
+	height:auto;
+}
+.inlineEdits{
+	.cancelButton, button[type="submit"]{
+		display:none;
+	}
+	.changed, &.changed{
+		.cancelButton, button[type="submit"]{
+			display:inline !important;
+		}
+		.deleteButton{
+			display:none !important;
+		}
+	}
+}
+
+
+
+/* ------------ header ---------- */ 
+@envelope-border: 3px;
+
+#contentWrapper > nav.navbar{
+	border:0;
+
+	a{
+		font-weight:normal;
+	}
+
+	> .container .navbar-brand{
+		background-color:#fff;
+		margin-left:0;
+		margin-top:-@envelope-border;
+		color:#000;
+		height:45px;
+		
+		img{
+			height:19px;
+			padding-bottom: 2px;
+			vertical-align:text-bottom;
+		}
+		&:hover{
+			background-color:#fff;
+		}
+	}
+
+	.navbar-header{
+		position:absolute;
+	}
+
+	.envelope{
+		padding:@envelope-border;
+	}
+
+	.highlight{
+		color: #BFEFFF;
+	}
+}
+
+/* ------------ footer ---------- */ 
+@footer-height: 80px;
+
+
+#page-footer{
+	padding: 20px 0;
+	background-color: @body-bg-2;
+	text-align:center;
+	color: @gray;
+	height:@footer-height;
+	margin-bottom:0 !important;
+}
+
+/* Wrapper for page content to push down footer */
+#contentWrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto @footer-height;
+}
+
+#push-footer{
+	height:@footer-height;
+}
+
+
+/* ------------ envelope box ---------- */
+
+.envelope{
+	background-color:white;
+	background-image: url('@{contextPath}/resources/images/redbluepattern.png');
+	box-shadow: 0 0 5px #888888;
+	padding:6px;
+	
+	.envelope-inner{
+		background-color:white;
+		padding:12px;
+	}
+}
+
+/* ------------ input field with icon ---------- */
+
+.input-icon-group{
+	position:relative;
+	
+	.form-control{
+		padding-right: 30px;
+		padding-left:10px;
+	}
+	
+	.fa{ /* icons */
+		position:absolute;
+		right:10px;
+		top:10px;
+		color:#999;
+	}
+}
+
+/* ------------ User Group List ---------- */
+.verticalRadios {
+	text-align: left;
+}
+
+.verticalRadios span {
+	display: block;
+}
+
+.verticalRadios label {
+	display: inline;
+	font-weight:normal;
+}
+
+.verticalRadios input {
+	margin-right: 5px;
+}
+
+.btn-toolbar {
+	margin-top: 30px;
+}
+
+
+/* ------------ bootstrap changes ---------- */
+.popover{
+	max-width: 600px;
+}
+label{
+	font-weight:normal;
+}
+.input-group-addon.addon-button{
+	padding:0;
+	background:@brand-primary;
+
+	button{
+		height:30px;
+		border:0;
+		background:transparent;
+		color:white;
+	}
+}
+.input-group-addon.addon-select{
+	padding:0;
+	select{
+		background:transparent;
+		height:30px;
+		border:0;
+	}
+}
+
+/* ------------ datepicker plugin fixes ---------- */ 
+
+.datepicker{
+	z-index: @zindex-modal+1 !important;
+}
+
+/* ------------ label to the right of an input ---------- */
+
+.right-input-label span{
+	float:right;
+	width:100px;
+	height:34px;
+	padding-top:.5em;
+	padding-left: 1em;
+}
+.right-input-label .input-wrapper{
+	overflow:hidden;
+	height:34px;
+}
+
+
+/*--------------- table.dataTable -------------*/
+
+table.dataTable{
+	tr.odd td{
+		background-color:#e2e4ff !important;
+	}
+	tr.odd td.sorting_1{
+		background-color:#f9f9f9 !important;
+	}	
+	tr.even td.sorting_1{
+		background-color:#fff  !important;
+	}
+	tr.selected td, tr.selected td.sorting_1{
+		background-color: @state-info-bg !important;
+	}
+}
+
+table.dataTable.no-footer {
+ border-bottom: 0px !important; 
+}
+
+
+
+/* ------------ dataTables ---------- */
+.dataTables_wrapper{
+
+	.bottom{
+		margin-top:30px !important;
+		position:relative !important;
+	}
+
+	.bottom select{
+		.inlineSelect !important;
+		padding:0.25em !important;
+	}
+
+	.dataTables_length{
+		position:absolute !important;
+		top:5px !important;
+		right:0 !important;
+	}
+
+}
+
+/* ------------ pagination ---------- */
+
+.pagination{
+	border-top: 1px solid #dddedf !important;
+	text-align:center !important;
+	clear:both !important;
+	margin-bottom:200px !important;
+	margin-top:25px !important;
+	float:none !important;
+
+	a, a.paginate_button{
+		color:@gray !important;
+		padding:8px !important;
+		border:0 !important;
+		background-color:transparent !important;
+		outline:0 !important;
+	}
+
+	a.current, a.paginate_active{
+		background-color:transparent !important;
+		border:0 !important;
+		color: @brand-secondary !important;
+		border-top: 1px solid @brand-secondary !important;
+		padding:8px !important;
+		border-radius:0 !important;
+		outline:0 !important;
+	}
+	a:hover, a.paginate_button:hover{
+		text-decoration: none !important;
+		font-weight: bold !important;
+		background-color:transparent !important;
+	}
+
+	form{
+		float:right;
+	}
+}
+
+.dataTables_wrapper .dataTables_paginate{
+	.pagination;
+	padding-top:5px !important;
+	margin-bottom:0px !important;
+}
+
+.errorBorder{border-style:solid; border-color:red;}
+	.error {
+    	color: red;
+	}	
+
+/* ------------ modal ---------- */
+.modal.no-header{
+	.close{
+		position:absolute;
+		top:5px;
+		right:10px;
+	}
+	.modal-body{
+		padding-top:40px;
+	}
+}
+
+/* ---------- item detail image ------------*/
+.imageHolder{
+	vertical-align: bottom;
+	float:right;
+
+	img{
+		width:100px;
+		background-color:whiteSmoke;
+		vertical-align: bottom
+	}
+	.price{
+		text-align:center;
+		font-weight:bold;
+		color:@brand-secondary;
+		display:block;
+		padding-top:5px;
+	}
+}

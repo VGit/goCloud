@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<var name="userForm" class="com.crgt.innov2015.model.UserForm" />
+
+	<on-start>
+		<evaluate expression="profileController.getUfnForUser()"
+			result="flowScope.ufnList" />
+	</on-start>
+
+	<view-state id="financeNumber" view="finance" model="userForm">
+		<transition on="next" to="financeNumberAction" bind="true"
+			validate="false" />
+	</view-state>
+	<action-state id="financeNumberAction">
+		<evaluate
+			expression="flowActions.validateUfn(flowScope.userForm, messageContext)" />
+		<transition on="success" to="rightFinanceUnit">
+			<evaluate expression="sfsProfileServiceImpl.getFncm(flowScope.userForm)"
+				result="flowScope.fncm" />
+		</transition>
+		<transition on="error" to="financeNumber" />
+	</action-state>
+
+	<view-state id="rightFinanceUnit" view="confirmFinance"
+		model="fncm">
+		<transition on="next" to="pruUserDraftCartAction" validate="false">
+			<set name="externalContext.sessionMap.userForm" value="userForm"
+				type="com.crgt.innov2015.model.UserForm" />
+		</transition>
+		<transition on="previous" to="financeNumber" bind="false" />
+		<!-- Move the user form from flow scope to session scope -->
+	</view-state>
+
+	<decision-state id="pruUserDraftCartAction">
+		<if
+			test="homeController.isLoggedInUserPruRole(externalContext.sessionMap.authorizedUserInSession)"
+			then="checkDraftExists" else="dashboard" />
+	</decision-state>
+	<decision-state id="checkDraftExists">
+		<if test="cartAsDraftController.draftExists(externalContext.nativeRequest.session)"
+			then="loadDraftCartForUser" else="dashboard" />
+	</decision-state>
+	<action-state id="loadDraftCartForUser">
+		<evaluate
+			expression="cartAsDraftController.loadDraftFromDb(externalContext.nativeRequest.session)" />
+		<transition to="pruDraftNotification">
+		</transition>
+	</action-state>
+	<view-state id="pruDraftNotification" view="draftNotification">
+		<transition on="continue" to="dashboard" bind="false" />
+		<!-- Move the user form from flow scope to session scope -->
+	</view-state>
+	<end-state id="dashboard" view="externalRedirect:contextRelative:/dashboard" />
+</flow>

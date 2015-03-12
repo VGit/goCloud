@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://mybatis.org/schema/mybatis-spring
+           http://mybatis.org/schema/mybatis-spring.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd
+  			http://www.springframework.org/schema/context
+        	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        	http://www.springframework.org/schema/jee 
+        	http://www.springframework.org/schema/jee/spring-jee-2.0.xsd 
+        	http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/task
+   			http://www.springframework.org/schema/task/spring-task-3.0.xsd ">
+	<mvc:default-servlet-handler />
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.crgt.innov2015" use-default-filters="true">
+		<context:include-filter expression="org.springframework.stereotype.Controller" type="annotation" />
+  		<context:include-filter expression="org.springframework.web.bind.annotation.ControllerAdvice" type="annotation" />
+	</context:component-scan>
+	<aop:aspectj-autoproxy/>
+	
+	<mvc:annotation-driven />
+	<task:annotation-driven />
+
+	<!-- <import resource="datasource-config.xml" />
+	<import resource="transactions.xml" /> -->
+
+<!-- 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean> -->
+<!-- 
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="basePackage" value="com.crgt.innov2015.dao, com.crgt.innov2015.model" />
+	</bean> -->
+	<!-- Autowired into CartServiceImpl --><!-- <bean id="shoppingCart" class="com.crgt.innov2015.model.ShoppingCart" 
+		scope="session"> This requires CGLIB <aop:scoped-proxy /> </bean> -->
+
+	<!-- Only for test, the authenticate bean is defined in one of the services -->
+<!-- 	<context:property-placeholder
+		ignore-unresolvable="true" location="classpath:ldap.properties" /> -->
+
+	<!-- <bean id="authenticate" class="com.crgt.innov2015.security.ldap.Authenticate">
+		<constructor-arg value="${ldap.namingcontext}" />
+		<constructor-arg value="${ldap.domain}" />
+		<constructor-arg type="java.util.List"
+			value="#{'${ldap.servers}'.split(',')}" />
+		<constructor-arg type="java.util.List"
+			value="#{'${ldap.allowed.groups}'.split(',')}" />
+	</bean>
+ -->
+	<!-- mailSender for Email from SFSWeb -->
+	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="email.usps.gov" />
+		<property name="port" value="25" />
+		<property name="username" value="username" />
+		<property name="password" value="password" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.debug">true</prop> 
+           		<prop key="mail.email.usps.auth">true</prop>        		
+			</props>
+		</property>
+	</bean> -->
+	
+	<!-- <bean id="EmailServiceImpl" class="com.crgt.innov2015.service.EmailServiceImpl">
+		<property name="mailSender" ref="mailSender" />
+	</bean> -->
+
+	<!-- <bean id="customeMailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="" />
+		<property name="to" value="" />
+		<property name="subject" value="" />
+		<property name="text">
+			<value>
+		<![CDATA[
+			
+		]]>
+			</value>
+		</property>
+	</bean> -->
+	
+ 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />  
+	
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:resources/messages" />
+		<property name="fallbackToSystemLocale" value="false" />
+	</bean>
+	
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	  <property name="corePoolSize" value="5" />
+	  <property name="maxPoolSize" value="10" />
+	  <property name="queueCapacity" value="25" />
+	</bean>
+	
+	<bean id="applicationContextUtils" class="com.crgt.innov2015.util.ApplicationContextUtils"></bean>
+		
+</beans>
