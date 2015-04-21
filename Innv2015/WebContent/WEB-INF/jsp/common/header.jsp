@@ -3,6 +3,11 @@
 	class="com.crgt.innov2015.util.SystemProperties" scope="application" />
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container">
+		<div class="navbar-header">
+				<a class="navbar-brand envelope-inner" style="background-color: #c5c5c5" href="${contextPath}/dashboard">
+					<img alt="Go Cloud" src="${contextPath}/resources/images/go_cloud.png" />
+				</a>
+		</div>
 		<button type="button" class="pull-right navbar-toggle"
 			data-toggle="collapse" data-target=".navbar-collapse">
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>

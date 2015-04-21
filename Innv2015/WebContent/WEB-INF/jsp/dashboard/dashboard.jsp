@@ -15,4 +15,3 @@ body{ background-color: #f3f1f1; }
 		</ul>		
 	</div></div>
 </div>
-<script src="${contextPath}/resources/js/sfsweb/dashboardPRU.js"></script>

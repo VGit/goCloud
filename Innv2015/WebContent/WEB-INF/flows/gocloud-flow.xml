@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+                        
+	<var name="answerForm" class="com.crgt.innov2015.model.GoCloudAnswers" />      
+	                  
+	<view-state id="qStart" view="qStart" model="answerForm">
+		<transition on="next" to="checkAnswerAction" bind="true"
+			validate="false" />
+		<transition on="previous" to="goPreviousAction" bind="true"
+			validate="false" />
+	</view-state>
+	<action-state id="checkAnswerAction">
+		<evaluate expression="guestController.validateAnswer(answerForm, externalContext.nativeRequest.session)" />
+		<transition on="success" to="qStart">
+		</transition>
+		<transition on="error" to="dashboard" />
+	</action-state>
+	<action-state id="goPreviousAction">
+		<evaluate expression="guestController.goPreviousQuestion()" />
+		<transition on="success" to="qStart">
+		</transition>
+		<transition on="error" to="dashboard" />
+	</action-state>
+	<end-state id="dashboard" view="externalRedirect:contextRelative:/dashboard" />
+</flow>
