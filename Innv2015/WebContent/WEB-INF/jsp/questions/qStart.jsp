@@ -13,11 +13,11 @@ body {
 				Do you want to be able to scale infrastructure up and down according
 				to demand ?<br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<form:radiobutton id="yesRadio" path="yesNoRadio" value="Yes"/>
 					<label for="yesRadio">Yes</label>
-					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<form:radiobutton id="noRadio" path="yesNoRadio"  value = "No"/>
 					<label for="noRadio">No</label>
-					<form:input type="hidden" class="form-control"
+					<form:input type="hidden" class="form-control" 
 						path="questionNumber" name="questionNumber" id="questionNumber"
 						value="q1" />
 					<br>
@@ -36,9 +36,9 @@ body {
 				Do you have workloads where the servers have to be running full
 				power 24x7, or nearly so? <br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<form:radiobutton id="yesRadio" path="yesNoRadio" value="Yes"/>
 					<label for="yesRadio">Yes</label>
-					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<form:radiobutton id="noRadio" path="yesNoRadio"  value = "No"/>
 					<label for="noRadio">No</label>
 					<br><br><br>
 					<button type="submit" class="btn btn-primary"
@@ -61,9 +61,9 @@ body {
 				Do you anticipate hardware investments and personnel costs in near
 				term ? <br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<form:radiobutton id="yesRadio" path="yesNoRadio" value="Yes"/>
 					<label for="yesRadio">Yes</label>
-					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<form:radiobutton id="noRadio" path="yesNoRadio"  value = "No"/>
 					<label for="noRadio">No</label>
 					<br><br><br>
 					<button type="submit" class="btn btn-primary"
@@ -85,9 +85,9 @@ body {
 				Do you prefer a pay-as-you-go model or prefer a long term commitment
 				with a provider with an up front investment ? <br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<form:radiobutton id="yesRadio" path="yesNoRadio" value="Yes"/>
 					<label for="yesRadio">Yes</label>
-					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<form:radiobutton id="noRadio" path="yesNoRadio"  value = "No"/>
 					<label for="noRadio">No</label>
 					<br><br><br>
 					<button type="submit" class="btn btn-primary"
@@ -110,9 +110,9 @@ body {
 				Do you want to maintain/update/backup of hardware and software and
 				maintain a high availability ?<br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<form:radiobutton id="yesRadio" path="yesNoRadio" value="Yes"/>
 					<label for="yesRadio">Yes</label>
-					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<form:radiobutton id="noRadio" path="yesNoRadio"  value = "No"/>
 					<label for="noRadio">No</label>
 					<form:input type="hidden" class="form-control"
 						path="questionNumber" name="questionNumber" id="questionNumber"
@@ -136,9 +136,9 @@ body {
 				Do you want data/applications to be backed up across different data
 				centers across the globe ?<br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<form:radiobutton id="yesRadio" path="yesNoRadio" value="Yes"/>
 					<label for="yesRadio">Yes</label>
-					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<form:radiobutton id="noRadio" path="yesNoRadio"  value = "No"/>
 					<label for="noRadio">No</label>
 					<form:input type="hidden" class="form-control"
 						path="questionNumber" name="questionNumber" id="questionNumber"
@@ -162,9 +162,9 @@ body {
 				Support speed to market and innovation and agility in infrastructure
 				?<br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<form:radiobutton id="yesRadio" path="yesNoRadio" value="Yes"/>
 					<label for="yesRadio">Yes</label>
-					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<form:radiobutton id="noRadio" path="yesNoRadio"  value = "No"/>
 					<label for="noRadio">No</label>
 					<form:input type="hidden" class="form-control"
 						path="questionNumber" name="questionNumber" id="questionNumber"

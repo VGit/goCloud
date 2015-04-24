@@ -17,6 +17,7 @@
 		<transition on="success" to="qStart">
 		</transition>
 		<transition on="error" to="dashboard" />
+		<transition on="summary" to="summary" />
 	</action-state>
 	<action-state id="goPreviousAction">
 		<evaluate expression="guestController.goPreviousQuestion(answerForm, externalContext.nativeRequest.session)" />
@@ -25,4 +26,5 @@
 		<transition on="error" to="dashboard" />
 	</action-state>
 	<end-state id="dashboard" view="externalRedirect:contextRelative:/dashboard" />
+	<end-state id="summary" view="summary" />
 </flow>

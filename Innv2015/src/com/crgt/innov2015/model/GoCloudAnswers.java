@@ -6,7 +6,7 @@ public class GoCloudAnswers implements java.io.Serializable {
 
 	private String questionNumber;
 
-	private String yesNoRadio;
+	private String yesNoRadio ="Yes";
 
 	public String getQuestionNumber() {
 		return questionNumber;

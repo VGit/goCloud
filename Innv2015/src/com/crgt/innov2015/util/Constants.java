@@ -304,6 +304,18 @@ public class Constants {
 	public static String[] usernames = {"vmadhu", "tsilpa", "ssandhya", "guest"};
 	
 	
-	
+	// Environment
+    public static final java.util.Map<String, String> QUESTION_MAP;
+    static
+    {
+    	QUESTION_MAP = new java.util.HashMap<String, String>();
+    	QUESTION_MAP.put("q1", "Do you want to be able to scale infrastructure up and down according to demand");
+    	QUESTION_MAP.put("q2", "Do you have workloads where the servers have to be running full power 24x7, or nearly so");
+    	QUESTION_MAP.put("q3", "Do you anticipate hardware investments and personnel costs in near term");
+    	QUESTION_MAP.put("q4", "Do you prefer a pay-as-you-go model or prefer a long term commitment with a provider with an up front investment");
+    	QUESTION_MAP.put("q5", "Do you want to maintain/update/backup of hardware and software and maintain a high availability");
+    	QUESTION_MAP.put("q6", "Do you want data/applications to be backed up across different data centers across the globe");
+    	QUESTION_MAP.put("q7", "Support speed to market and innovation and agility in infrastructure");
+    }
 	
 }
