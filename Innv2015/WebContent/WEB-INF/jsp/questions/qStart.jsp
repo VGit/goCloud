@@ -7,26 +7,22 @@ body {
 <div class="login-flow">
 	<div class="panel panel-default">
 		<div class="panel-heading">Is Application ready for Cloud</div>
-		<div id="div_1" class="clearfix qDiv" style="display: none;">
 
+		<div id="div_1" class="clearfix qDiv" style="display: none;">
 			<div class="panel-body">
-				1. Do you have a particular cloud in mind ?<br> <br>
+				Do you want to be able to scale infrastructure up and down according
+				to demand ?<br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<input id="q1YesRadio" name="radiogrp" type="radio" />
-					<label for="q1YesRadio">Yes</label>
-					<input id="q1NoRadio" name="radiogrp" type="radio" />
-					<label for="q1NoRadio">No</label>
-					<input type="hidden" value="q1" />
+					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<label for="yesRadio">Yes</label>
+					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<label for="noRadio">No</label>
 					<form:input type="hidden" class="form-control"
 						path="questionNumber" name="questionNumber" id="questionNumber"
 						value="q1" />
 					<br>
 					<br>
 					<br>
-					<button type="submit" class="btn btn-primary"
-						name="_eventId_previous">
-						<i class="icon-arrow-left"></i> Back
-					</button>
 					<button type="submit" class="btn btn-primary pull-right"
 						name="_eventId_next">
 						Continue <i class="icon-arrow-right"></i>
@@ -37,13 +33,14 @@ body {
 
 		<div id="div_2" class="clearfix qDiv" style="display: none;">
 			<div class="panel-body">
-				2. What is the size of your application ? <br> <br>
+				Do you have workloads where the servers have to be running full
+				power 24x7, or nearly so? <br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<select id="qAppSizeSelect"><option>Under 1GB</option>
-						<option>1GB-5GB</option>
-						<option>5GB-10GB</option>
-						<option>Don't know</option></select>
-					<br>
+					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<label for="yesRadio">Yes</label>
+					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<label for="noRadio">No</label>
+					<br><br><br>
 					<button type="submit" class="btn btn-primary"
 						name="_eventId_previous">
 						<i class="icon-arrow-left"></i> Back
@@ -61,18 +58,14 @@ body {
 
 		<div id="div_3" class="clearfix qDiv" style="display: none;">
 			<div class="panel-body">
-				3. What database would you prefer ? <br> <br>
+				Do you anticipate hardware investments and personnel costs in near
+				term ? <br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<input id="q3OracleCheck" type="checkbox" />
-					<label for="q3OracleCheck">Oracle</label>
-					<input id="q3MySqlCheck" type="checkbox" />
-					<label for="q3MySqlCheck">My Sql</label>
-					<input id="q3PostGresCheck" type="checkbox" />
-					<label for="q3PostGresCheck">PostGres</label>
-					<input id="q3SybaseCheck" type="checkbox" />
-					<label for="q3AnyCheck">Any</label>
-					<br>
-
+					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<label for="yesRadio">Yes</label>
+					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<label for="noRadio">No</label>
+					<br><br><br>
 					<button type="submit" class="btn btn-primary"
 						name="_eventId_previous">
 						<i class="icon-arrow-left"></i> Back
@@ -89,13 +82,14 @@ body {
 		</div>
 		<div id="div_4" class="clearfix qDiv" style="display: none;">
 			<div class="panel-body">
-				4. What's the size of your database ? <br> <br>
+				Do you prefer a pay-as-you-go model or prefer a long term commitment
+				with a provider with an up front investment ? <br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
-					<select id="qDbSizeSelect"><option>Under 1GB</option>
-						<option>1GB-5GB</option>
-						<option>5GB-10GB</option>
-						<option>Don't know</option></select>
-					<br>
+					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<label for="yesRadio">Yes</label>
+					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<label for="noRadio">No</label>
+					<br><br><br>
 					<button type="submit" class="btn btn-primary"
 						name="_eventId_previous">
 						<i class="icon-arrow-left"></i> Back
@@ -107,6 +101,85 @@ body {
 					<form:input type="hidden" class="form-control"
 						path="questionNumber" name="questionNumber" id="questionNumber"
 						value="q4" />
+				</form:form>
+			</div>
+		</div>
+
+		<div id="div_5" class="clearfix qDiv" style="display: none;">
+			<div class="panel-body">
+				Do you want to maintain/update/backup of hardware and software and
+				maintain a high availability ?<br> <br>
+				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
+					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<label for="yesRadio">Yes</label>
+					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<label for="noRadio">No</label>
+					<form:input type="hidden" class="form-control"
+						path="questionNumber" name="questionNumber" id="questionNumber"
+						value="q5" />
+					<br>
+					<br>
+					<br>
+					<button type="submit" class="btn btn-primary"
+						name="_eventId_previous">
+						<i class="icon-arrow-left"></i> Back
+					</button>
+					<button type="submit" class="btn btn-primary pull-right"
+						name="_eventId_next">
+						Continue <i class="icon-arrow-right"></i>
+					</button>
+				</form:form>
+			</div>
+		</div>
+		<div id="div_6" class="clearfix qDiv" style="display: none;">
+			<div class="panel-body">
+				Do you want data/applications to be backed up across different data
+				centers across the globe ?<br> <br>
+				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
+					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<label for="yesRadio">Yes</label>
+					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<label for="noRadio">No</label>
+					<form:input type="hidden" class="form-control"
+						path="questionNumber" name="questionNumber" id="questionNumber"
+						value="q6" />
+					<br>
+					<br>
+					<br>
+					<button type="submit" class="btn btn-primary"
+						name="_eventId_previous">
+						<i class="icon-arrow-left"></i> Back
+					</button>
+					<button type="submit" class="btn btn-primary pull-right"
+						name="_eventId_next">
+						Continue <i class="icon-arrow-right"></i>
+					</button>
+				</form:form>
+			</div>
+		</div>
+		<div id="div_7" class="clearfix qDiv" style="display: none;">
+			<div class="panel-body">
+				Support speed to market and innovation and agility in infrastructure
+				?<br> <br>
+				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
+					<form:radiobutton id="yesRadio" path="yesNoRadio" />
+					<label for="yesRadio">Yes</label>
+					<form:radiobutton id="noRadio" path="yesNoRadio" />
+					<label for="noRadio">No</label>
+					<form:input type="hidden" class="form-control"
+						path="questionNumber" name="questionNumber" id="questionNumber"
+						value="q7" />
+					<br>
+					<br>
+					<br>
+					<button type="submit" class="btn btn-primary"
+						name="_eventId_previous">
+						<i class="icon-arrow-left"></i> Back
+					</button>
+					<button type="submit" class="btn btn-primary pull-right"
+						name="_eventId_next">
+						Continue <i class="icon-arrow-right"></i>
+					</button>
 				</form:form>
 			</div>
 		</div>

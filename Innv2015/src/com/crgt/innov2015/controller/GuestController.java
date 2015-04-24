@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,27 +24,37 @@ public class GuestController {
 	 * @throws IOException
 	 */
 	@RequestMapping(value = "/start", method = RequestMethod.GET)
-	public void getGuestStartPage(HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+	public void getGuestStartPage(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
 		request.getSession().setAttribute("username", "Guest");
 		response.sendRedirect("../gocloud-flow");
 	}
 
 	public Event validateAnswer(GoCloudAnswers answerForm, HttpSession session) {
-		if ("q1".equalsIgnoreCase(answerForm.getQuestionNumber())) {
-			session.setAttribute("divNum", 2);
-		} else if ("q2".equalsIgnoreCase(answerForm.getQuestionNumber())) {
-			session.setAttribute("divNum", 3);
-		} else if ("q3".equalsIgnoreCase(answerForm.getQuestionNumber())) {
-			session.setAttribute("divNum", 4);
-		} else if ("q4".equalsIgnoreCase(answerForm.getQuestionNumber())) {
+		String qNumber = answerForm.getQuestionNumber();
+		if (!StringUtils.isEmpty(qNumber)) {
+			int questionNumber = new Integer(
+					qNumber.substring(qNumber.length() - 1));
+			session.setAttribute("divNum", questionNumber + 1);
+		} else {
 			session.setAttribute("divNum", "");
 		}
 		return new EventFactorySupport().success(this);
 	}
 
-	public Event goPreviousQuestion() {
-
+	public Event goPreviousQuestion(GoCloudAnswers answerForm, HttpSession session) {
+		String qNumber = answerForm.getQuestionNumber();
+		if (!StringUtils.isEmpty(qNumber)) {
+			int questionNumber = new Integer(
+					qNumber.substring(qNumber.length() - 1));
+			if(questionNumber - 1 > 0) {
+				session.setAttribute("divNum", questionNumber - 1);
+			} else {
+				session.setAttribute("divNum", 1);
+			}
+		} else {
+			session.setAttribute("divNum", "");
+		}
 		return new EventFactorySupport().success(this);
 	}
 
