@@ -9,4 +9,5 @@
 	</ul>
 	<br>
 	<p>Based on your answers your application is Cloud compatible. Below are some of the cloud service providers you can choose from.</p>
+	<a href="${contextPath}/cloudSelect/main" class="btn">Choose Cloud</a>
 </div>

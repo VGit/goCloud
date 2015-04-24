@@ -56,6 +56,10 @@
 	</definition>
 	<definition name="summary" extends="sfstemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/questions/page1Summary.jsp" />
+	</definition>
+	<definition name="chooseCloud" extends="sfstemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/questions/ChooseCloud.jsp" />
 	</definition>	
+	
 	
 </tiles-definitions>
