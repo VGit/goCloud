@@ -2,5 +2,5 @@
 <jsp:useBean id="date" class="java.util.Date" />
 
 <footer id="page-footer">
-	Copyright © 1999-<fmt:formatDate value="${date}" pattern="yyyy" /> CRGT. All Rights Reserved. <br> 
+	Copyright © 2014-<fmt:formatDate value="${date}" pattern="yyyy" /> Go Cloud. All Rights Reserved. <br> 
 </footer>

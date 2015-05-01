@@ -60,6 +60,9 @@
 	<definition name="chooseCloud" extends="sfstemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/questions/ChooseCloud.jsp" />
 	</definition>	
+	<definition name="migrate" extends="sfstemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/upload/buildParams.jsp" />
+	</definition>
 	
 	
 </tiles-definitions>

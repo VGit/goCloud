@@ -46,7 +46,7 @@
     	var hasActiveSession = ${authorizedUserInSession != null};
     </script>
     
-<title>${not empty title ? title : 'SFS Web'} </title><%-- TODO: Titles --%>
+<title>${not empty title ? title : 'Go Cloud'} </title><%-- TODO: Titles --%>
 </head>
 
 <body>

@@ -193,4 +193,4 @@ body {
 <script>
 	var divNum = '${divNum}';
 </script>
-<script src="${contextPath}/resources/js/sfsweb/qStart.js"></script>
+<script src="${contextPath}/resources/js/innov2015/qStart.js"></script>

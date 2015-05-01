@@ -1,9 +1,16 @@
 <%@ include file="/WEB-INF/jsp/common/taglibs.jsp"%>
-<div class="row" style="text-align:center; width: 480px;">
+<div class="row" style="text-align: center; width: 480px;">
 	<img alt="AWS" src="${contextPath}/resources/images/aws.png"
-		height="84" width="84">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt="AWS"
-		src="${contextPath}/resources/images/cloudfoundry.jpg" height="84"
-		width="84">
+		height="104" width="104">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	&nbsp;<img alt="Cloud Foundry"
+		src="${contextPath}/resources/images/cloudfoundry.jpg" height="104"
+		width="104">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img
+		alt="IBM Bluemix" src="${contextPath}/resources/images/ibmbluemix.jpg"
+		height="104" width="104">
+</div>
+<div>
+	<a href="${contextPath}/cloudSelect/getMigrateParam" class="btn">Migrate to
+		Cloud</a>
 </div>
 <br>
 <div class="row">
