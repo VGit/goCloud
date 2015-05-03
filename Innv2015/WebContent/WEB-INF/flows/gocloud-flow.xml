@@ -26,5 +26,5 @@
 		<transition on="error" to="dashboard" />
 	</action-state>
 	<end-state id="dashboard" view="externalRedirect:contextRelative:/dashboard" />
-	<end-state id="summary" view="summary" />
+	<end-state id="summary" view="externalRedirect:contextRelative:/guest/decisionsummary" />
 </flow>

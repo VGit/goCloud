@@ -16,8 +16,8 @@ $(document).ready(function() {
 function hideShowDiv() {
 	$('div.qDiv').hide();
 	if (divNum) {
-		$('#div_' + divNum).show();
+		$('.div_' + divNum).show();
 	} else {
-		$('#div_1').show();
+		$('.div_1').show();
 	}
 }

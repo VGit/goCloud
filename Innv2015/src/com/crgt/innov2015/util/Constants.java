@@ -317,5 +317,21 @@ public class Constants {
     	QUESTION_MAP.put("q6", "Do you want data/applications to be backed up across different data centers across the globe");
     	QUESTION_MAP.put("q7", "Support speed to market and innovation and agility in infrastructure");
     }
+    
+ // Environment
+    public static final java.util.Map<String, String> QUESTION_GEN_MAP;
+	public static final String NO = "No";
+	public static final String YES = "Yes";
+    static
+    {
+    	QUESTION_GEN_MAP = new java.util.HashMap<String, String>();
+    	QUESTION_GEN_MAP.put("q1", "Can the required compliance/security levels be achieved externally?");
+    	QUESTION_GEN_MAP.put("q2", "Can acceptable Service Level Agreement (SLA) be found externally?");
+    	QUESTION_GEN_MAP.put("q3", "Is external hosting financially viable?");
+    	QUESTION_GEN_MAP.put("q4", "Do you prefer a pay-as-you-go model or prefer a long term commitment with a provider with an up front investment");
+    	QUESTION_GEN_MAP.put("q5", "Do you want to maintain/update/backup of hardware and software and maintain a high availability");
+    	QUESTION_GEN_MAP.put("q6", "Do you want data/applications to be backed up across different data centers across the globe");
+    	QUESTION_GEN_MAP.put("q7", "Support speed to market and innovation and agility in infrastructure");
+    }
 	
 }

@@ -8,12 +8,13 @@ body {
 
 
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-6" style="display: none;">
 		<div id="login-box">
 			<div class="envelope">
 				<div class="envelope-inner">
 					Welcome to our application!! If you would like to check if your
-					application is ready for cloud <a href="${contextPath}/guest/start">Click Here to get started</a>
+					application is ready for cloud <a href="${contextPath}/guest/start">Click
+						Here to get started</a>
 				</div>
 			</div>
 		</div>
@@ -64,8 +65,29 @@ body {
 			</div>
 		</div>
 	</div>
+	<div class="col-md-6">
+		<div id="login-box">
+			<div class="envelope">
+				<div class="envelope-inner" style="height: 300">
+					<span id="signinButton"> <span class="g-signin"
+						data-callback="signinCallback"
+						data-clientid="116811876349-f8aucthc9lcs3kc620mosqk08j5s59cl.apps.googleusercontent.com"
+						data-cookiepolicy="single_host_origin"
+						data-requestvisibleactions="http://schema.org/AddAction"
+						data-scope="https://www.googleapis.com/auth/plus.login"> </span>
+					</span> <br><br> <a href="${contextPath}/dashboard"> <img
+						src="${contextPath}/resources/images/loginwithfb.png" height="33"
+						width="204" />
+					</a> <br>   <br><a href="${contextPath}/dashboard"> <img
+						src="${contextPath}/resources/images/loginwithamazon.png"
+						height="32" width="204" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
+<script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <script src="${contextPath}/resources/js/lib/jquery.placeholder.js"></script>
 <script>
 	var isLoginPage = true;
@@ -82,5 +104,21 @@ body {
 
 		document.loginForm.j_username.focus();
 	});
+
+	function signinCallback(authResult) {
+		if (authResult['status']['signed_in']) {
+			// Update the app to reflect a signed in user
+			// Hide the sign-in button now that the user is authorized, for example:
+			/* document.getElementById('signinButton').setAttribute('style',
+					'display: none'); */
+		} else {
+			// Update the app to reflect a signed out user
+			// Possible error values:
+			//   "user_signed_out" - User is signed-out
+			//   "access_denied" - User denied access to your app
+			//   "immediate_failed" - Could not automatically log in the user
+			console.log('Sign-in state: ' + authResult['error']);
+		}
+	}
 </script>
 

@@ -11,8 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.webflow.action.EventFactorySupport;
 import org.springframework.webflow.execution.Event;
 
@@ -32,6 +34,7 @@ public class GuestController {
 	public void getGuestStartPage(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		request.getSession().setAttribute("username", "Guest");
+		request.getSession().setAttribute("divNum", "");
 		response.sendRedirect("../gocloud-flow");
 	}
 
@@ -41,12 +44,59 @@ public class GuestController {
 			setValueInSession(answerForm, session);
 			int questionNumber = new Integer(
 					qNumber.substring(qNumber.length() - 1));
-
-			if (questionNumber == 7) {
-				return new Event(this, "summary");
+			if (questionNumber == 1 || questionNumber == 2
+					|| questionNumber == 3) {
+				if (Constants.NO.equalsIgnoreCase(answerForm.getYesNoRadio())) {
+					session.setAttribute("decisionval", "internalIT");
+					session.setAttribute("cloudChoice", "Internal IT");
+					return new Event(this, "summary");
+				}
+			}
+			if (questionNumber == 4 || questionNumber == 5) {
+				if (Constants.YES.equalsIgnoreCase(answerForm.getYesNoRadio())) {
+					session.setAttribute("cloudChoice", "Internal IT");
+					session.setAttribute("decisionval", "internalIT");
+					return new Event(this, "summary");
+				}
 			}
 
-			session.setAttribute("divNum", questionNumber + 1);
+			if (questionNumber == 7) {
+				if (Constants.NO.equalsIgnoreCase(answerForm.getYesNoRadio())) {
+					session.setAttribute("cloudChoice", "Managed Services");
+					session.setAttribute("decisionval", "managedServices");
+					return new Event(this, "summary");
+				}
+			}
+
+			if (questionNumber == 8) {
+				if (Constants.NO.equalsIgnoreCase(answerForm.getYesNoRadio())) {
+					session.setAttribute("cloudChoice", "Colocation");
+					session.setAttribute("decisionval", "colocation");
+					return new Event(this, "summary");
+				}
+			}
+
+			if (questionNumber == 9) {
+				if (Constants.YES.equalsIgnoreCase(answerForm.getYesNoRadio())) {
+					session.setAttribute("cloudChoice", "Colocation");
+					session.setAttribute("decisionval", "colocation");
+					return new Event(this, "summary");
+				}
+				if (Constants.NO.equalsIgnoreCase(answerForm.getYesNoRadio())) {
+					session.setAttribute("cloudChoice", "Public Cloud");
+					session.setAttribute("decisionval", "publiccloud");
+					return new Event(this, "summary");
+				}
+			}
+			if (questionNumber == 6 || questionNumber == 7) {
+				if (Constants.YES.equalsIgnoreCase(answerForm.getYesNoRadio())) {
+					session.setAttribute("divNum", 8);
+				} else {
+					session.setAttribute("divNum", questionNumber + 1);
+				}
+			} else {
+				session.setAttribute("divNum", questionNumber + 1);
+			}
 		} else {
 			session.setAttribute("divNum", "");
 		}
@@ -61,9 +111,11 @@ public class GuestController {
 		if (null == questionAnswerMap) {
 			questionAnswerMap = new TreeMap<String, Pair<String, String>>();
 		}
-		Pair<String, String> qAndA = new Pair<String,String>(Constants.QUESTION_MAP.get(answerForm.getQuestionNumber()), answerForm.getYesNoRadio());
-		questionAnswerMap.put(answerForm.getQuestionNumber(),qAndA);
-		
+		Pair<String, String> qAndA = new Pair<String, String>(
+				Constants.QUESTION_MAP.get(answerForm.getQuestionNumber()),
+				answerForm.getYesNoRadio());
+		questionAnswerMap.put(answerForm.getQuestionNumber(), qAndA);
+
 		session.setAttribute("questionAnswerMap", questionAnswerMap);
 	}
 
@@ -83,4 +135,16 @@ public class GuestController {
 		}
 		return new EventFactorySupport().success(this);
 	}
+
+	@RequestMapping(value = "/decisionsummary", method = RequestMethod.GET)
+	public String gotoDecisionSummary(ModelMap model, HttpSession session) {
+		Map<String, Pair<String, String>> questionAnswerMap = (Map<String, Pair<String, String>>) session
+				.getAttribute("questionAnswerMap");
+		if (null == questionAnswerMap) {
+			return "loginpage";
+		}
+		model.put("decision", session.getAttribute("decisionval"));
+		return "summary";
+	}
+
 }

@@ -1,17 +1,39 @@
 <%@ include file="/WEB-INF/jsp/common/taglibs.jsp"%>
 <style>
-body{ background-color: #f3f1f1; }
+body {
+	background-color: #f3f1f1;
+}
+
+.top-buffer {
+	margin-top: 60px;
+}
 </style>
 
 <div class="clearfix">
-<div class="row dashboard">
-	<div class="col-md-4 col-sm-6"><div class="inner">
-		<h1>My Orders<i class="cutout cutout-truck"></i></h1>		
-		<ul>		
-			<li><a href="${contextPath}/order/showOrders?type=O-R">Open Orders</a><%-- <span class="openOrdersCnt"></span> --%></li> 
-			<li><a href="${contextPath}/order/showOrders?type=B">Booked Orders</a><%-- <span class="bookedOrdersCnt"></span> --%></li>
-			<li><a href="${contextPath}/order/showOrders?type=S-P">Shipped Orders</a><%-- <span class="shippedOrdersCnt"></span> --%></li>
-			<li><a href="${contextPath}/order/showOrders?type=C">Canceled Orders</a><%-- <span class="canceledOrdersCnt"></span> --%></li>
-		</ul>		
-	</div></div>
+	<div class="row">
+		<div id="login-box">
+			<div class="envelope">
+				<div class="envelope-inner" style="height: 300">
+					<br><a href="${contextPath}/guest/start"> <img
+						src="${contextPath}/resources/images/cloudornot.png" height="33"
+						width="204" />
+					</a><br> <br><br><a href="${contextPath}/cloudSelect/main"> <img
+						src="${contextPath}/resources/images/whichcloud.png" height="33"
+						width="204" class="pull-right"/>
+					</a> <br><br><br><a href="${contextPath}/cloudSelect/getMigrateParam"> <img
+						src="${contextPath}/resources/images/deploytocloud.png"
+						height="33" width="204" /><br><br>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<style>
+a.clickbox {
+	width: 400px;
+	height: 455px;
+	border: 1px solid #0074c2;
+	background-color: offwhite;
+}
+</style>
