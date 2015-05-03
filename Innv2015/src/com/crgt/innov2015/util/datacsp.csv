@@ -1,0 +1,48 @@
+Analytics,2,2,1
+Transactions,3,3,3
+Media,2,3,3
+Mobile,2,2,1
+Web2,3,3,2
+IDESupport,1,3,2
+Targets(Dev test),3,3,2
+CLI,3,1,3
+API's,3,1,3
+Git,3,1,2
+SSH/Shell Access,0,1,2
+UserRegistry,2,3,2
+Security,2,3,2
+Queueing,1,2,2
+Authentication,2,2,2
+Authorization,2,2,3
+Policy Modeling,0,2,0
+Availability,1,3,3
+Reliability,3,3,3
+Vertical Scalability,3,3,3
+Horizontal Scalability,3,3,3
+Multi-Zones HA,3,3,3
+Credit,0,3,3
+SQL,3,3,3
+NOSQL Column DataStore,0,2,3
+NOSQL KeyValue DataStore,2,2,3
+NOSQL Document Store,2,2,2
+NOSQL Graph DataStore,1,2,1
+Container Based Programming,2,2,1
+Resource Multi-Tenancy,2,2,1
+Security Isolation,2,2,2
+Multi-Framework,3,1,2
+Logging,3,2,2
+Self Service Monitoring,2,2,3
+Paid Monitoring,2,3,3
+Enterprise Governance,1,2,1
+Automation,3,2,3
+Console,1,2,2
+AutoScale,1,3,1
+Pattern Based Deployments,1,0,2
+Real Time Software Patching,0,3,0
+Load Balancing,3,3,3
+Storage/BackUp,1,2,3
+Open Governance,3,0,0
+OSS,3,0,0
+Open Service MarketPlace,3,2,3
+VMS,0,2,3
+Multi-IAAS,3,0,0
