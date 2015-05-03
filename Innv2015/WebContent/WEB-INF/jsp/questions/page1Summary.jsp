@@ -11,23 +11,30 @@
 	<span class="red" style="font-size: 16pt;"><b>${cloudChoice}</b></span>
 	<c:if test="${decision eq 'internalIT'}">
 		<div class="internalIT">
-			<p>Internal IT enables an organization to meet its IT objectives
-				while ensuring security of critical applications, by keeping those
+			<p>
+				Internal IT enables an organization to meet its IT objectives while
+				ensuring security of critical applications, by keeping those
 				applications in house. Before running the applications in house,
 				organizations need to make long term investment decisions and assess
 				the capability of their internal resources to host and effectively
-				manage applications. Select from: Legacy IT: Retaining the
-				applications with legacy IT enables organizations to exercise
-				complete control over all aspects of the DC architecture and
-				network. An organization's core competency applications depend on
-				company specific knowledge. They require very specific hardware and
-				platform configurations that can't easily be recreated, either
-				externally or on the commodity hardware platforms favored for
-				private cloud implementations. Internal private cloud: Private
-				clouds should be considered by organizations looking for the
-				flexibility, agility and elasticity offered by external models such
-				as public cloud, but are constrained by application requirements
-				that can't be met using external hosting solutions.</p>
+				manage applications.<br>
+				<br> Select from:
+			<dl class="dl-vertical">
+				<dt>Legacy IT</dt>
+				<dd>Retaining the applications with legacy IT enables
+					organizations to exercise complete control over all aspects of the
+					DC architecture and network. An organization's core competency
+					applications depend on company specific knowledge. They require
+					very specific hardware and platform configurations that can't
+					easily be recreated, either externally or on the commodity hardware
+					platforms favored for private cloud implementations.</dd>
+				<dt>Internal private cloud</dt>
+				<dd>Private clouds should be considered by organizations
+					looking for the flexibility, agility and elasticity offered by
+					external models such as public cloud, but are constrained by
+					application requirements that can't be met using external hosting
+					solutions.</dd>
+			</dl>
 		</div>
 	</c:if>
 	<c:if test="${decision eq 'managedServices' }">
@@ -38,32 +45,39 @@
 				explore Managed Service Provider (MSP) offerings. Managed services
 				are a good fit for organizations looking for top rated skills,
 				monitoring and management expertise, and high service and support
-				levels. <br>Choices are: <br> Outsourced private cloud:
-				For applications that are a good fit for private cloud in
-				organizations that lack the skills to build their own private cloud,
-				an outsourced private cloud offers an attractive alternative that
-				retains many of the benefits of private cloud, but eliminates the
-				need to build up the skills and specialized infrastructure. <br>Hosted
-				private cloud: Outsourced private cloud still requires the purchase
-				of infrastructure and sufficient space/power/cooling to host the
-				private cloud infrastructure internally, which may not be an option
-				for some organizations. In such situations, a hosted private cloud
-				is a viable alternative; the infrastructure is installed at the
-				hosting provider's facility and managed by the hosting provider's
-				staff. <br>On premises managed services: This is a good
-				alternative when a legacy IT approach is required to meet the needs
-				of the application, but the organization can no longer support the
-				infrastructure. The MSP takes over the existing infrastructure and
-				application (or works with the organization to create new
-				infrastructure) at the customer's existing site and provides
-				dedicated management staff on site. This allows organizations to get
-				better service levels at lower costs. <br>Remote managed
-				services: Similar in principle to an on premises managed service
-				approach, the key difference is that the MSP manages the
-				infrastructure and application remotely, rather than providing
-				dedicated on site staff. Use of remote managed service will be less
-				expensive than on premises approaches, but with some reduction in
-				the level of support.
+				levels. <br>
+				<br>Choices are:
+			<dl class="dl-vertical">
+				<dt>Outsourced private cloud</dt>
+				<dd>For applications that are a good fit for private cloud in
+					organizations that lack the skills to build their own private
+					cloud, an outsourced private cloud offers an attractive alternative
+					that retains many of the benefits of private cloud, but eliminates
+					the need to build up the skills and specialized infrastructure.</dd>
+				<dt>Hosted private cloud</dt>
+				<dd>Outsourced private cloud still requires the purchase of
+					infrastructure and sufficient space/power/cooling to host the
+					private cloud infrastructure internally, which may not be an option
+					for some organizations. In such situations, a hosted private cloud
+					is a viable alternative; the infrastructure is installed at the
+					hosting provider's facility and managed by the hosting provider's
+					staff.</dd>
+				<dt>On premises managed services</dt>
+				<dd>This is a good alternative when a legacy IT approach is
+					required to meet the needs of the application, but the organization
+					can no longer support the infrastructure. The MSP takes over the
+					existing infrastructure and application (or works with the
+					organization to create new infrastructure) at the customer's
+					existing site and provides dedicated management staff on site. This
+					allows organizations to get better service levels at lower costs.</dd>
+				<dt>Remote managed services</dt>
+				<dd>Similar in principle to an on premises managed service
+					approach, the key difference is that the MSP manages the
+					infrastructure and application remotely, rather than providing
+					dedicated on site staff. Use of remote managed service will be less
+					expensive than on premises approaches, but with some reduction in
+					the level of support.</dd>
+			</dl>
 			</p>
 		</div>
 	</c:if>
@@ -139,13 +153,13 @@
 		<div class="row" style="text-align: center;">
 
 			<a href="${contextPath}/cloudSelect/main"> <img alt="AWS"
-				src="${contextPath}/resources/images/aws.png"/>
+				src="${contextPath}/resources/images/aws.png" />
 			</a> <a href="${contextPath}/cloudSelect/main"> <img
 				alt="Cloud Foundry"
-				src="${contextPath}/resources/images/cloudfoundry.jpg" >
+				src="${contextPath}/resources/images/cloudfoundry.jpg">
 			</a> <a href="${contextPath}/cloudSelect/main"> <img
 				alt="IBM Bluemix"
-				src="${contextPath}/resources/images/microsoftazure.jpg" >
+				src="${contextPath}/resources/images/microsoftazure.jpg">
 			</a>
 		</div>
 	</c:if>

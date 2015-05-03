@@ -4,8 +4,8 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-				<a class="navbar-brand envelope-inner" style="background-color: #c5c5c5" href="${contextPath}/dashboard">
-					<img alt="Go Cloud" src="${contextPath}/resources/images/go_cloud.png" />
+				<a class="envelope-inner" href="${contextPath}/dashboard">
+					<img alt="Go Cloud" height="55" width="175" src="${contextPath}/resources/images/go_cloud.png" />
 				</a>
 		</div>
 		<button type="button" class="pull-right navbar-toggle"
