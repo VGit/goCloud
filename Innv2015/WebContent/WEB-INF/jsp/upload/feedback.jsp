@@ -18,6 +18,10 @@
 		<td><label>Email address </label></td>
 		<td>${buildparams.userEmail}</td>
 	</tr>
+	<tr>
+		<td><label>GIT URL</label></td>
+		<td>${buildparams.gitURL}</td>
+	</tr>
 	<c:if test="${cloudname eq 'Amazon Web Services'}">
 	<tr>
 		<td><label>Application Infrastructure Stack Name </label></td>

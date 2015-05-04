@@ -135,7 +135,7 @@ public class CloudSelectController {
 	public String migrateWebAppCF(BuildParams buildParams, ModelMap model,
 			HttpSession session) throws SQLException {
 		// https://gocloud.ci.cloudbees.com/buildByToken/buildWithParameters?job=CloudFoundryJob&token=ILIKECOFFEE&giturl=https://github.com/mvattipulusu/guessgame&ApplicationName=Web
-		final String uri = "https://gocloud.ci.cloudbees.com/buildByToken/buildWithParameters?job={job}&token={token}&giturl=${giturl}&ApplicationName={appname}";
+		final String uri = "https://gocloud.ci.cloudbees.com/buildByToken/buildWithParameters?job={job}&token={token}&giturl={giturl}&ApplicationName={appname}";
 
 		String job = "CloudFoundryJob";
 		String token = "ILIKECOFFEE";
