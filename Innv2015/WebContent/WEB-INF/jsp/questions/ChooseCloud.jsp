@@ -8,7 +8,7 @@
 </div>
 <br>
 
-<table id="cspDataTable" class="table" style="width:75%;">
+<table id="cspDataTable" class="table" style="width: 75%;">
 	<thead>
 		<tr role="row">
 			<th></th>
@@ -18,13 +18,13 @@
 		</tr>
 	</thead>
 	<tfoot>
-            <tr>
-            	<th>Total</th>
-            	<th></th>
-            	<th></th>
-            	<th></th>
-            </tr>
-        </tfoot>
+		<tr>
+			<th>Total</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</tfoot>
 	<tbody role="alert" aria-live="polite" aria-relevant="all">
 		<c:forEach items="${cspvoList}" var="cspvo">
 			<tr>
@@ -48,12 +48,15 @@
 		</c:forEach>
 	</tbody>
 </table>
+<div>
+Reference : <a href="http://www.slideshare.net/Pivotal/paa-s-comparison2014v08" target="_blank">http://www.slideshare.net/Pivotal/paa-s-comparison2014v08</a>
+</div>
 <script>
 	$(document).ready(
 			function() {
 				table = $('#cspDataTable').DataTable(
 						{
-							"dom" : '<"top"f>rt<"bottom"pl><"clear">',
+							"dom" : '<f"top">rt<"bottom"pl><"clear">',
 							"retrieve" : true,
 							"bDestroy" : true,
 							"paging" : false,
@@ -63,6 +66,9 @@
 
 								// Remove the formatting to get integer data for summation
 								var intVal = function(i) {
+									if(isNaN(i)){
+										return 0;
+									}
 									return typeof i === 'string' ? i.replace(
 											/[\$,]/g, '') * 1
 											: typeof i === 'number' ? i : 0;

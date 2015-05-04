@@ -123,10 +123,10 @@ public class CloudSelectController {
 				token, dbname, dbusername, dbpassword, email, stackName);
 		System.out.println("Result :" + result);
 		Random random = new Random();
-		int n = 100000 + random.nextInt() * 900000;
+		int n = 100000 + Math.abs(random.nextInt() * 900000);
 		model.put("buildparams", buildParams);
 		model.put("cloudname", "Amazon Web Services");
-		model.put("confirmNum", n);
+		model.put("confirmNum", "AWS-"+n);
 		model.put("apptype", "dbapp");
 		return "migratefeedback";
 	}
@@ -168,10 +168,10 @@ public class CloudSelectController {
 				token, S3bucket, email, stackName);
 		System.out.println("Result :" + result);
 		Random random = new Random();
-		int n = 100000 + random.nextInt() * 900000;
+		int n = 100000 + Math.abs(random.nextInt() * 900000);
 		model.put("buildparams", buildParams);
-		model.put("cloudname", "Amazon Web Services");
-		model.put("confirmNum", n);
+		model.put("cloudname", "Cloud Foundry");
+		model.put("confirmNum", "CF-"+n);
 		model.put("apptype", "webapp");
 		return "migratefeedback";
 	}
