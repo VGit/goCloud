@@ -8,7 +8,7 @@
 </div>
 <br>
 
-<table id="cspDataTable" class="table" style="width: 75%;">
+<table id="cspDataTable" class="table" style="width: 75%;" style="display:none">
 	<thead>
 		<tr role="row">
 			<th></th>
@@ -52,13 +52,13 @@
 Reference : <a href="http://www.slideshare.net/Pivotal/paa-s-comparison2014v08" target="_blank">http://www.slideshare.net/Pivotal/paa-s-comparison2014v08</a>
 </div>
 <script>
-	$(document).ready(
+	$(window).load(
 			function() {
 				table = $('#cspDataTable').DataTable(
 						{
 							"dom" : '<f"top">rt<"bottom"pl><"clear">',
 							"retrieve" : true,
-							"bDestroy" : true,
+							 destroy : true,
 							"paging" : false,
 							"footerCallback" : function(row, data, start, end,
 									display) {
@@ -100,4 +100,5 @@ Reference : <a href="http://www.slideshare.net/Pivotal/paa-s-comparison2014v08" 
 							}
 						});
 			});
+	$('#cspDataTable').show();
 </script>
