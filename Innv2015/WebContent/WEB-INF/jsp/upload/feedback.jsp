@@ -18,10 +18,12 @@
 		<td><label>Email address </label></td>
 		<td>${buildparams.userEmail}</td>
 	</tr>
+	<c:if test="${cloudname eq 'Amazon Web Services'}">
 	<tr>
 		<td><label>Application Infrastructure Stack Name </label></td>
 		<td>${buildparams.stackName}</td>
 	</tr>
+	</c:if>
 	<tr>
 		<td><label>Environment</label></td>
 		<td>${buildparams.environment}</td>

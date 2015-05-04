@@ -70,10 +70,10 @@
 						<td><select id="environment" name="environment"
 							style="width: 150px;" required>
 								<option value="" selected>Select</option>
-								<option value="Development">DEV</option>
-								<option value="SystemTest">SIT</option>
-								<option value="CustomerTest">CAT</option>
-								<option value="Production">PROD</option>
+								<option value="DEV">DEV</option>
+								<option value="SIT">SIT</option>
+								<option value="CAT">CAT</option>
+								<option value="PROD">PROD</option>
 						</select></td>
 					<tr>
 
@@ -110,10 +110,10 @@
 						<td><select id="environment" name="environment"
 							style="width: 150px;" required>
 								<option value="" selected>Select</option>
-								<option value="Development">DEV</option>
-								<option value="SystemTest">SIT</option>
-								<option value="CustomerTest">CAT</option>
-								<option value="Production">PROD</option>
+								<option value="DEV">DEV</option>
+								<option value="SIT">SIT</option>
+								<option value="CAT">CAT</option>
+								<option value="PROD">PROD</option>
 						</select></td>
 					<tr>
 					<tr>
@@ -162,18 +162,14 @@
 						<td><input id="userEmail" name="userEmail" type="email" /></td>
 					</tr>
 					<tr>
-						<td><label>Application Infrastructure Stack Name </label></td>
-						<td><input id="stackName" name="stackName" type="text" /></td>
-					</tr>
-					<tr>
 						<td><label>Environment</label></td>
 						<td><select id="environment" name="environment"
 							style="width: 150px;" required>
 								<option value="" selected>Select</option>
-								<option value="Development">DEV</option>
-								<option value="SystemTest">SIT</option>
-								<option value="CustomerTest">CAT</option>
-								<option value="Production">PROD</option>
+								<option value="DEV">DEV</option>
+								<option value="SIT">SIT</option>
+								<option value="CAT">CAT</option>
+								<option value="PROD">PROD</option>
 						</select></td>
 					<tr>
 						<td colspan="2"><input type="submit" value="Migrate"

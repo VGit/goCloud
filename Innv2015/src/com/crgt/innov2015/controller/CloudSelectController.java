@@ -36,7 +36,7 @@ public class CloudSelectController {
 	@RequestMapping(value = "/migrateWebAppAWS", method = RequestMethod.POST)
 	public String migrateWebAppAWS(BuildParams buildParams, ModelMap model,
 			HttpSession session) throws SQLException {
-//		https://gocloud.ci.cloudbees.com/buildByToken/buildWithParameters?job=AwsCloud&token=ILIKECOFFEE&giturl=https://github.com/mvattipulusu/guessgame&email=vattipulusu@gmail.com&S3bucket=innov2015&StackName=GoCloud1&ApplicationName=Web&EnvironmentName
+		// https://gocloud.ci.cloudbees.com/buildByToken/buildWithParameters?job=AwsCloud&token=ILIKECOFFEE&giturl=https://github.com/mvattipulusu/guessgame&email=vattipulusu@gmail.com&S3bucket=innov2015&StackName=GoCloud1&ApplicationName=Web&EnvironmentName
 		final String uri = "https://gocloud.ci.cloudbees.com/buildByToken/buildWithParameters?job={job}&token={token}&giturl=${giturl}&S3bucket={bucket}&email={email}&StackName={stackName}&ApplicationName={appname}&EnvironmentName={env}";
 
 		// Map<String, String> params = new HashMap<String, String>();
@@ -56,7 +56,7 @@ public class CloudSelectController {
 		String stackName, email = "";
 		String giturl = buildParams.getGitURL();
 		String appName = buildParams.getAppName();
-		String env = buildParams.getEnvironment();
+		String env = appName + "-" + buildParams.getEnvironment();
 
 		if (StringUtils.isEmpty(buildParams.getStackName())) {
 			stackName = buildParams.getAppName()
@@ -71,13 +71,13 @@ public class CloudSelectController {
 		}
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.getForObject(uri, String.class, job,
-				token,giturl, S3bucket, email, stackName,appName,env);
+				token, giturl, S3bucket, email, stackName, appName, env);
 		System.out.println("Result :" + result);
 		Random random = new Random();
 		int n = 100000 + Math.abs(random.nextInt() * 900000);
 		model.put("buildparams", buildParams);
 		model.put("cloudname", "Amazon Web Services");
-		model.put("confirmNum", "AWS-"+n);
+		model.put("confirmNum", "AWS-" + n);
 		model.put("apptype", "webapp");
 		return "migratefeedback";
 	}
@@ -126,7 +126,7 @@ public class CloudSelectController {
 		int n = 100000 + Math.abs(random.nextInt() * 900000);
 		model.put("buildparams", buildParams);
 		model.put("cloudname", "Amazon Web Services");
-		model.put("confirmNum", "AWS-"+n);
+		model.put("confirmNum", "AWS-" + n);
 		model.put("apptype", "dbapp");
 		return "migratefeedback";
 	}
@@ -134,44 +134,22 @@ public class CloudSelectController {
 	@RequestMapping(value = "/migrateWebAppCF", method = RequestMethod.POST)
 	public String migrateWebAppCF(BuildParams buildParams, ModelMap model,
 			HttpSession session) throws SQLException {
-		final String uri = "https://gocloud.ci.cloudbees.com/buildByToken/buildWithParameters?job={job}&token={token}&S3bucket={bucket}&email={email}&StackName={stackName}";
+		// https://gocloud.ci.cloudbees.com/buildByToken/buildWithParameters?job=CloudFoundryJob&token=ILIKECOFFEE&giturl=https://github.com/mvattipulusu/guessgame&ApplicationName=Web
+		final String uri = "https://gocloud.ci.cloudbees.com/buildByToken/buildWithParameters?job={job}&token={token}&giturl=${giturl}&ApplicationName={appname}";
 
-		// Map<String, String> params = new HashMap<String, String>();
-		// params.put("job", "AwsCloud");
-		// params.put("token", "ILIKECOFFEE");
-		// params.put("S3bucket", "innov2015");
-		// params.put("email", buildParams.getUserEmail());
-		// if (StringUtils.isEmpty(buildParams.getStackName())) {
-		// params.put("stackname",
-		// buildParams.getAppName() + DATE.getCurrentDate());
-		// } else {
-		// params.put("stackname", buildParams.getStackName());
-		// }
-		String job = "AwsCloud";
+		String job = "CloudFoundryJob";
 		String token = "ILIKECOFFEE";
-		String S3bucket = "innov2015";
-		String stackName, email = "";
-
-		if (StringUtils.isEmpty(buildParams.getStackName())) {
-			stackName = buildParams.getAppName()
-					+ Calendar.getInstance().getTimeInMillis();
-		} else {
-			stackName = buildParams.getStackName();
-		}
-		if (StringUtils.isEmpty(buildParams.getUserEmail())) {
-			email = "madhu.vattipulusu@gmail.com";
-		} else {
-			email = buildParams.getUserEmail();
-		}
+		String giturl = buildParams.getGitURL();
+		String appName = buildParams.getAppName();
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.getForObject(uri, String.class, job,
-				token, S3bucket, email, stackName);
+				token, giturl, appName);
 		System.out.println("Result :" + result);
 		Random random = new Random();
 		int n = 100000 + Math.abs(random.nextInt() * 900000);
 		model.put("buildparams", buildParams);
 		model.put("cloudname", "Cloud Foundry");
-		model.put("confirmNum", "CF-"+n);
+		model.put("confirmNum", "CF-" + n);
 		model.put("apptype", "webapp");
 		return "migratefeedback";
 	}

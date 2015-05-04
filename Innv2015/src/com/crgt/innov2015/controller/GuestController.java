@@ -33,8 +33,6 @@ public class GuestController {
 	@RequestMapping(value = "/start", method = RequestMethod.GET)
 	public void getGuestStartPage(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
-		request.getSession().setAttribute("username", "Guest");
-		request.getSession().setAttribute("divNum", "");
 		response.sendRedirect("../gocloud-flow");
 	}
 
