@@ -64,5 +64,8 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/upload/buildParams.jsp" />
 	</definition>
 	
+		<definition name="migratefeedback" extends="sfstemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/upload/feedback.jsp" />
+	</definition>
 	
 </tiles-definitions>

@@ -98,7 +98,6 @@
 	
 	<script src="${contextPath}/resources/js/lib/jquery.idletimeout.js"></script>
     <script src="${contextPath}/resources/js/lib/jquery.idletimer.js"></script>
-    <script src="${contextPath}/resources/js/sfsweb/jquery.sessionTimeout.js"></script>
 	<script src="${contextPath}/resources/js/lib/jquery.dataTables.min.js"></script>
 	<script src="${contextPath}/resources/js/lib/dataTables.tableTools.js"></script>	
 	<script src="${contextPath}/resources/js/lib/dataTables.formattedNumbers.js"></script>

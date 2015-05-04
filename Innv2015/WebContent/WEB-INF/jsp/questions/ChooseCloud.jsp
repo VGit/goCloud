@@ -6,48 +6,92 @@
 	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt="IBM Bluemix"
 		src="${contextPath}/resources/images/microsoftazure.jpg">
 </div>
-<div>
-	<a href="${contextPath}/cloudSelect/getMigrateParam" class="btn">Migrate
-		to Cloud</a>
-</div>
 <br>
-<div class="row">
-	<ul class="nav nav-tabs">
-		<li role="presentation" class="active"><a
-			data-target="#service-level" data-toggle="tab">Service-level</a></li>
-		<li role="presentation"><a data-target="#network"
-			data-toggle="tab">Network</a></li>
-		<li role="presentation"><a data-target="#resilience"
-			data-toggle="tab">Resilience and Recovery</a></li>
-		<li role="presentation"><a data-target="#it-skills"
-			data-toggle="tab">IT skills</a></li>
-		<li role="presentation"><a data-target="#flexibility"
-			data-toggle="tab">Flexibility</a></li>
-		<li role="presentation"><a data-target="#security"
-			data-toggle="tab">Security</a></li>
-		<li role="presentation"><a data-target="#regulations"
-			data-toggle="tab">Regulations</a></li>
-		<li role="presentation"><a data-target="#compatibility"
-			data-toggle="tab">Compatibility</a></li>
-	</ul>
-	<div class="tab-content">
-		<div class="tab-pane active" id="service-level">
-			<br> <br>
-			<ul>
-				<li>Do you want to be able to scale infrastructure up and down
-					according to demand ? <input type="radio" id="yesRadio"
-					name="yesNoRadio" value="Yes" /> <label for="yesRadio">Yes</label>
-					<input type="radio" id="noRadio" name="yesNoRadio" value="No" /> <label
-					for="noRadio">No</label>
-				</li>
-			</ul>
-		</div>
-		<div class="tab-pane" id="network">2</div>
-		<div class="tab-pane" id="resilience">3</div>
-		<div class="tab-pane" id="it-skills">4</div>
-		<div class="tab-pane" id="fliexibility">5</div>
-		<div class="tab-pane" id="security">6</div>
-		<div class="tab-pane" id="regulations">7</div>
-		<div class="tab-pane" id="compatibility">8</div>
-	</div>
-</div>
+
+<table id="cspDataTable" class="table" style="width:75%;">
+	<thead>
+		<tr role="row">
+			<th></th>
+			<th>Amazon Web Service (AWS)</th>
+			<th>Cloud Foundry</th>
+			<th>Microsoft Azure</th>
+		</tr>
+	</thead>
+	<tfoot>
+            <tr>
+            	<th>Total</th>
+            	<th></th>
+            	<th></th>
+            	<th></th>
+            </tr>
+        </tfoot>
+	<tbody role="alert" aria-live="polite" aria-relevant="all">
+		<c:forEach items="${cspvoList}" var="cspvo">
+			<tr>
+				<td>${cspvo.type}</td>
+				<td
+					<c:if test="${'0' eq cspvo.awsValue}"> style="background-color:#ffffff !important;"</c:if>
+					<c:if test="${'1' eq cspvo.awsValue}"> style="background-color:#D6EBF2 !important;"</c:if>
+					<c:if test="${'2' eq cspvo.awsValue}"> style="background-color:#CBFDCB !important;"</c:if>
+					<c:if test="${'3' eq cspvo.awsValue}"> style="background-color:#B2FFFF !important;"</c:if>>${cspvo.awsValue}</td>
+				<td
+					<c:if test="${'0' eq cspvo.cfValue}"> style="background-color:#ffffff !important;"</c:if>
+					<c:if test="${'1' eq cspvo.cfValue}"> style="background-color:#D6EBF2 !important;"</c:if>
+					<c:if test="${'2' eq cspvo.cfValue}"> style="background-color:#CBFDCB !important;"</c:if>
+					<c:if test="${'3' eq cspvo.cfValue}"> style="background-color:#B2FFFF !important;"</c:if>>${cspvo.cfValue}</td>
+				<td
+					<c:if test="${'0' eq cspvo.azureValue}"> style="background-color:#ffffff !important;"</c:if>
+					<c:if test="${'1' eq cspvo.azureValue}"> style="background-color:#D6EBF2 !important;"</c:if>
+					<c:if test="${'2' eq cspvo.azureValue}"> style="background-color:#CBFDCB !important;"</c:if>
+					<c:if test="${'3' eq cspvo.azureValue}"> style="background-color:#B2FFFF !important;"</c:if>>${cspvo.azureValue}</td>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
+<script>
+	$(document).ready(
+			function() {
+				table = $('#cspDataTable').DataTable(
+						{
+							"dom" : '<"top"f>rt<"bottom"pl><"clear">',
+							"retrieve" : true,
+							"bDestroy" : true,
+							"paging" : false,
+							"footerCallback" : function(row, data, start, end,
+									display) {
+								var api = this.api(), data;
+
+								// Remove the formatting to get integer data for summation
+								var intVal = function(i) {
+									return typeof i === 'string' ? i.replace(
+											/[\$,]/g, '') * 1
+											: typeof i === 'number' ? i : 0;
+								};
+
+								// Total over all pages
+								awstotal = api.column(1).data().reduce(
+										function(a, b) {
+											return intVal(a) + intVal(b);
+										});
+
+								// Update footer
+								$(api.column(1).footer()).html(awstotal);
+								// Total over all pages
+								cftotal = api.column(2).data().reduce(
+										function(a, b) {
+											return intVal(a) + intVal(b);
+										});
+
+								// Update footer
+								$(api.column(2).footer()).html(cftotal);
+								matotal = api.column(3).data().reduce(
+										function(a, b) {
+											return intVal(a) + intVal(b);
+										});
+
+								// Update footer
+								$(api.column(3).footer()).html(matotal);
+							}
+						});
+			});
+</script>

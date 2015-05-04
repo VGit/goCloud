@@ -10,9 +10,9 @@ public class CSPVO {
 	
 	
 	private String type;
-	private int awsValue;
-	private int cfValue;
-	private int azureValue;
+	private String awsValue;
+	private String cfValue;
+	private String azureValue;
 	
 	
 	public String getType() {
@@ -21,24 +21,25 @@ public class CSPVO {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getAwsValue() {
+	public String getAwsValue() {
 		return awsValue;
 	}
-	public void setAwsValue(int awsValue) {
+	public void setAwsValue(String awsValue) {
 		this.awsValue = awsValue;
 	}
-	public int getCfValue() {
+	public String getCfValue() {
 		return cfValue;
 	}
-	public void setCfValue(int cfValue) {
+	public void setCfValue(String cfValue) {
 		this.cfValue = cfValue;
 	}
-	public int getAzureValue() {
+	public String getAzureValue() {
 		return azureValue;
 	}
-	public void setAzureValue(int azureValue) {
+	public void setAzureValue(String azureValue) {
 		this.azureValue = azureValue;
 	}
+	
 
 
 	/*private CSPCharacteristic cspCharacteristic;

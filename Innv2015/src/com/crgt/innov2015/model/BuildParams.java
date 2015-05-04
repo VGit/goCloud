@@ -12,6 +12,9 @@ public class BuildParams implements Serializable {
 	private String token;
 	private String stackName;
 	private String environment;
+	private String dbname;
+	private String dbusername;
+	private String dbpassword;
 
 	public String getCompanyName() {
 		return companyName;
@@ -75,5 +78,29 @@ public class BuildParams implements Serializable {
 
 	public void setEnvironment(String environment) {
 		this.environment = environment;
+	}
+
+	public String getDbname() {
+		return dbname;
+	}
+
+	public void setDbname(String dbname) {
+		this.dbname = dbname;
+	}
+
+	public String getDbusername() {
+		return dbusername;
+	}
+
+	public void setDbusername(String dbusername) {
+		this.dbusername = dbusername;
+	}
+
+	public String getDbpassword() {
+		return dbpassword;
+	}
+
+	public void setDbpassword(String dbpassword) {
+		this.dbpassword = dbpassword;
 	}
 }
