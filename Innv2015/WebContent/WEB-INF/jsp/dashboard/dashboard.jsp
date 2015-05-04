@@ -7,6 +7,10 @@ body {
 .top-buffer {
 	margin-top: 60px;
 }
+
+.envelope {
+	background-image: url("${contextPath}/resources/images/redbluepattern.png")
+}
 </style>
 
 <div class="clearfix">

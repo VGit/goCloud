@@ -11,7 +11,7 @@ body {
 		<div id="div_1" class="div_1 clearfix qDiv" style="display: none;">
 			<div class="panel-body">
 				Can the required compliance/security levels be achieved externally?
-				?<br> <br>
+				<br> <br>
 				<form:form modelAttribute="answerForm" action="${flowExecutionUrl}">
 					<form:radiobutton id="yesRadio" path="yesNoRadio" value="Yes" />
 					<label for="yesRadio">Yes</label>

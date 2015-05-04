@@ -3,6 +3,10 @@
 body {
 	background-color: #f3f1f1;
 }
+
+.envelope {
+	background-image: url("${contextPath}/resources/images/redbluepattern.png")
+}
 </style>
 
 
@@ -75,10 +79,12 @@ body {
 						data-cookiepolicy="single_host_origin"
 						data-requestvisibleactions="http://schema.org/AddAction"
 						data-scope="https://www.googleapis.com/auth/plus.login"> </span>
-					</span> <br><br> <a href="${contextPath}/dashboard"> <img
+					</span> <br>
+					<br> <a href="${contextPath}/dashboard"> <img
 						src="${contextPath}/resources/images/loginwithfb.png" height="33"
 						width="204" />
-					</a> <br>   <br><a href="${contextPath}/dashboard"> <img
+					</a> <br> <br>
+					<a href="${contextPath}/dashboard"> <img
 						src="${contextPath}/resources/images/loginwithamazon.png"
 						height="32" width="204" />
 					</a>
